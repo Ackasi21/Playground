@@ -4,6 +4,7 @@ import streamlit as st
 import re
 from fuzzywuzzy import process
 
+# Dictionary to map state abbreviations to full names
 states_dict = {
     "Alabama": "AL", "Alaska": "AK", "Arizona": "AZ", "Arkansas": "AR", "California": "CA", 
     "Colorado": "CO", "Connecticut": "CT", "Delaware": "DE", "Florida": "FL", "Georgia": "GA", 
@@ -61,7 +62,7 @@ def check_for_hurricanes(state, update_type):
         st.write("Failed to fetch data.")
         return
 
-    soup = BeautifulSoup(response.content, features="xml")
+    soup = BeautifulSoup(response.content, features="html.parser")
     entries = soup.find_all('item')
 
     if update_type == "country":
