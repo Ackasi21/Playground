@@ -3,3 +3,5 @@ beautifulsoup4
 streamlit
 folium
 streamlit_folium
+fuzzywuzzy
+python-Levenshtein
